@@ -51,5 +51,7 @@ PublicKey = $Client_PubKey
 AllowedIPs = $next_ip/32
 EOF"
 
+sudo systemctl restart wg-quick@wg0
+
 echo "Client configuration file '${1}_wg0.conf' created."
 echo "Client added to server configuration with IP address $next_ip."
