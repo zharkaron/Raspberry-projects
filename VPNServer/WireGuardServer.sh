@@ -17,8 +17,6 @@ Server_PrivKey=$(cat Server_privatekey)
 Server_PubKey=$(cat Server_publickey)
 
 # Step 4: Create the WireGuard Configuration File
-
-# Writing the server config with the private key dynamically
 sudo bash -c "cat <<EOF > /etc/wireguard/wg0.conf
 [Interface]
 PrivateKey = $Server_PrivKey
@@ -33,11 +31,7 @@ PostDown = iptables -t nat -D POSTROUTING -o wlan0 -j MASQUERADE
 EOF"
 
 # Step 5: Start WireGuard
-
-# Enable the WireGuard service to start on boot
 sudo systemctl enable wg-quick@wg0
-
-# Start the WireGuard interface
 sudo systemctl start wg-quick@wg0
 
 # Check if the WireGuard interface is running
