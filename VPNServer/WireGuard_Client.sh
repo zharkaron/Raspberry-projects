@@ -29,20 +29,3 @@ Endpoint = Your_Raspberry_Pi_IP:1194
 AllowedIPs = 0.0.0.0/0
 PersistentKeepalive = 25
 EOF"
-
-# Step 4: Enable and Start WireGuard on Client
-sudo systemctl enable wg-quick@${1}_wg0
-sudo systemctl start wg-quick@${1}_wg0
-
-# Check the status of WireGuard on the client
-sudo wg > test
-
-if [ -s test ]; then
-  echo "Client configuration complete, and the connection is up!"
-else
-  echo "Client setup failed. Check the client logs and verify configuration."
-  exit 1
-fi
-
-# Clean up the test file
-rm -f test
