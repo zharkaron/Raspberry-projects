@@ -6,14 +6,14 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-# Step 1: Generate Client Keys
+# Step 1: Generate Client Keyscat
 wg genkey | tee "${1}_privatekey" | wg pubkey > "${1}_publickey"
 
 Client_PrivKey=$(cat "${1}_privatekey")
 Client_PubKey=$(cat "${1}_publickey")
 
 # Step 2: Extract the Server Public Key from the Server Configuration
-Server_PubKey=$(sudo grep -oP "(?<=PublicKey = ).*" /etc/wireguard/wg0.conf)
+Server_PubKey=$(cat "Server_publickey")
 
 # Step 3: Create the Client Configuration File
 
