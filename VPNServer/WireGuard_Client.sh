@@ -17,7 +17,7 @@ Server_PubKey=$(sudo grep -oP "(?<=PublicKey = ).*" /etc/wireguard/wg0.conf)
 
 # Step 3: Create the Client Configuration File
 
-sudo bash -c "cat <<EOF > /etc/wireguard/${1}_wg0.conf
+sudo bash -c "cat <<EOF > ${1}_wg0.conf
 [Interface]
 PrivateKey = $Client_PrivKey
 Address = 10.0.0.2/24
