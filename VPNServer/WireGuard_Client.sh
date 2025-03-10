@@ -44,6 +44,9 @@ PersistentKeepalive = 25
 EOF"
 
 # Step 5: Add the Client to the Server Configuration
+
+sudo systemctl stop wg-quick@wg0
+
 sudo bash -c "cat <<EOF >> /etc/wireguard/wg0.conf
 
 [Peer]
