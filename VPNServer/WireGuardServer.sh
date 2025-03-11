@@ -2,7 +2,7 @@
 
 # Step 1: Install WireGuard
 sudo apt update && sudo apt upgrade -y
-sudo apt install wireguard iptables -y
+sudo apt install wireguard iptables resolvconf -y
 
 # Step 2: Enable Packet Forwarding
 echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
