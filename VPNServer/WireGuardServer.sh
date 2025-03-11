@@ -23,6 +23,7 @@ PrivateKey = $Server_PrivKey
 Address = 10.0.0.1/24
 ListenPort = 1194
 SaveConfig = true
+DNS = 8.8.8.8
 
 # NAT for clients to access the internet
 PostUp = iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
