@@ -15,8 +15,8 @@ SSH_CONFIG="/etc/ssh/sshd_config"
 echo "Configuring SSH settings..."
 sudo sed -i 's/#Port 22/Port 22/' $SSH_CONFIG  # Ensure default port is set
 sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/' $SSH_CONFIG  # Disable root login
-sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' $SSH_CONFIG  # Ensure password authentication is enabled
-
+sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' $SSH_CONFIG  # Ensure password authentication is enabled
+sudo sed -i 's/#PubkeyAuthentication no/PubkeyAuthentication yes/' $SSH_CONFIG 
 # Restart SSH service
 echo "Restarting SSH service..."
 sudo systemctl restart ssh
